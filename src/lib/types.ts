@@ -7,7 +7,8 @@ export enum Platform {
 	Linkedin = 'linkedin',
 	Email = 'email',
 	Facebook = 'facebook',
-	Youtube = 'youtube'
+	Youtube = 'youtube',
+  Codewars = 'codewars'
 }
 
 export type Icon = `i-${string}-${string}`;
@@ -18,7 +19,9 @@ export enum ContractType {
 	SelfEmployed = 'Self-employed',
 	Freelance = 'Freelance',
 	Contract = 'Contract',
-	Internship = 'Internship'
+	Internship = 'Internship',
+  Stage = 'Stage',
+  Alternance = "Alternance"
 }
 
 export type Asset = string | { light: string; dark: string };

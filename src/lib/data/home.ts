@@ -1,7 +1,7 @@
 import { Platform } from '$lib/types';
 import { getSkills } from './skills';
 
-export const title = 'Portfolio';
+export const title = 'Home';
 
 export const name = 'Arthur';
 
@@ -24,6 +24,10 @@ export const links: Array<{ platform: Platform; link: string }> = [
 		platform: Platform.Email,
 		link: 'arthur.scheidbach@live.fr'
 	},
+  {
+    platform: Platform.Codewars,
+    link: ''
+  }
 ];
 
-export const skills = getSkills('js', 'html', 'svelte', 'ts');
+export const skills = getSkills('js', 'html', 'svelte', 'ts', 'go');

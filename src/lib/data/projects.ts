@@ -4,20 +4,20 @@ import type { Project } from '../types';
 
 export const items: Array<Project> = [
 	{
-		slug: 'slick-portfolio-angular',
-		color: '#5e95e3',
+		slug: 'izuna-hatsuse',
+		color: '#c07187',
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non dolores voluptatibus vitae praesentium aperiam, iure laboriosam repellendus sunt explicabo pariatur totam enim, nihil animi quisquam. Sit vero quod laborum!',
+			'Bot en JS avec la librairie Discord.Js',
 		shortDescription:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore non dolores voluptatibus vitae praesentium aperiam, iure laboriosam repellendus sunt explicabo pariatur totam enim, nihil animi quisquam. Sit vero quod laborum!',
-		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
-		logo: Assets.Unknown,
-		name: 'Slick Portfolio',
+		 'Un bot discord en javascript avec la librairie Discord.js servant ',
+		links: [{ to: 'https://github.com/Tokiwadai-Railgun/Izuna', label: 'GitHub' }],
+		logo: Assets.IzunaHatsuse,
+		name: 'Izuna Hatsuse',
 		period: {
-			from: new Date()
+			from: new Date(2020, 7, 6),
 		},
-		skills: getSkills('angular', 'ts', 'tailwind'),
-		type: 'Website Template'
+		skills: getSkills('js'),
+		type: 'Discord Bot'
 	},
 	{
 		slug: 'slick-portfolio-svelte',
@@ -63,4 +63,4 @@ export const items: Array<Project> = [
 	}
 ];
 
-export const title = 'Projects';
+export const title = 'Projets';

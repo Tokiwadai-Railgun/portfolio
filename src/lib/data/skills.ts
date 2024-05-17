@@ -91,14 +91,22 @@ export const items = [
   defineSkill({
     slug: "discordjs",
     color: "blue",
-    description: "he",
+    description: "Librairie javascript",
     logo: Assets.Discordjs,
     name: "Discord.js",
     category: "library"
+  }),
+  defineSkill({
+    slug: "docker",
+    color: "blue",
+    description: "Docker utilisé pour différents programmes",
+    logo: Assets.Docker,
+    name: "Docker",
+    category: "devtools"
   })
 ] as const;
 
-export const title = 'Skills';
+export const title = 'Compétences';
 
 export const getSkills = (
 	...slugs: Array<StringWithAutoComplete<(typeof items)[number]['slug']>>

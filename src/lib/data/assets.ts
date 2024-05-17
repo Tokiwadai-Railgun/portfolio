@@ -71,7 +71,11 @@ const Assets = {
 	Unocss: a('unocss.svg'),
 	Ruvy: a('ruvy.svg'),
 	Postcss: a('postcss.svg'),
-  Discordjs: a('discordjs.png')
+  Discordjs: a('discordjs.svg'),
+  Francoispermier: a('francoispermier.png'),
+  Utec: a('utec.svg'),
+  IzunaHatsuse: a('izuna.png'),
+  Insead: a('insead.png')
 };
 
 export default Assets;
