@@ -5,5 +5,5 @@ export const items = [
 	{ title: 'Experience', to: '/experience', icon: 'i-carbon-development' },
 	{ title: 'Education', to: '/education', icon: 'i-carbon-education' },
 	{ title: 'Veille', to: '/veille', icon: 'i-carbon-result' },
-	{ title: 'Log In', to: '/login', icon: 'i-carbon-user' },
+	{ title: 'Connexion', to: '/login', icon: 'i-carbon-user' },
 ] as const;

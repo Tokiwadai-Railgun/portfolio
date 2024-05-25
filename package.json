@@ -47,6 +47,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"dayjs": "^1.11.10"
+		"dayjs": "^1.11.10",
+		"dotenv": "^16.4.5",
+		"mysql2": "^3.9.7"
 	}
 }

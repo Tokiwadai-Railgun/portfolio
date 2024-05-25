@@ -1,4 +1,6 @@
 <script lang="ts">
+  export let data: {skills?: Array<Skill>};
+  const skills = data.skills;
 	import { base } from '$app/paths';
 	import { title, groupByCategory } from '@data/skills';
 	import { getAssetURL } from '$lib/data/assets';
@@ -6,6 +8,7 @@
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import Card from '$lib/components/Card/Card.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
+	import type { Skill } from '$lib/types';
 
 	let result = groupByCategory('');
 
@@ -26,7 +29,7 @@
 		</div>
 	{:else}
 		<div class="col mt-5 gap-7">
-			{#each result as group (group.category.slug)}
+			{#each skills as group (group.category.slug)}
 				<div class="col gap-5 mb-7">
 					<div class="row items-center gap-5">
 						<div class="bg-[var(--main-hover)] h-[1px] w-[20px]" />

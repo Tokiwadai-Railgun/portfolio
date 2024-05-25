@@ -25,47 +25,10 @@
 		url: string;
 	};
 
-	export let data: { skill?: Skill };
+	export let data: { skill?: Skill, related?: Related };
 
-	const getRelatedProjects = (): Array<Related> => {
-		const out: Array<Related> = [];
-
-		const skill = data.skill;
-
-		if (!skill) {
-			return [];
-		}
-
-		projects.items.forEach((item) => {
-			if (item.skills.some((tech) => tech.slug === skill.slug)) {
-				out.push({
-					img: getAssetURL(item.logo),
-					display: `${item.name} (${item.type})`,
-					name: item.name,
-					type: 'projects',
-					url: `/projects/${item.slug}`
-				});
-			}
-		});
-
-		experiences.items.forEach((item) => {
-			if (item.skills.some((tech) => tech.slug === skill.slug)) {
-				out.push({
-					img: getAssetURL(item.logo),
-					display: `${item.name} @ ${item.company}`,
-					name: item.name,
-					type: 'experience',
-					url: `/experience/${item.slug}`
-				});
-			}
-		});
-
-		return out;
-	};
-
+  const { related } = data;
 	$: computedTitle = data.skill ? `${data.skill.name} - ${title}` : title;
-
-	$: related = data.skill ? getRelatedProjects() : [];
 </script>
 
 <TabTitle title={computedTitle} />

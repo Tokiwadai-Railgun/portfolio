@@ -1,4 +1,7 @@
 <script lang="ts">
+  export let data;
+  let projects = data.project;
+
 	import { items, title } from '@data/projects';
 	import * as skills from '@data/skills';
 	import { onMount } from 'svelte';
@@ -85,7 +88,10 @@
 		</div>
 	{:else}
 		<div class="projects-list mt-5">
-			{#each displayed as project}
+			{#each projects as project}
+        <script>
+          console.log(project)
+        </script>
 				<ProjectCard {project} />
 			{/each}
 		</div>

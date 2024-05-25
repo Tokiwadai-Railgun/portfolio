@@ -13,7 +13,7 @@ export const items: Array<Experience> = [
 		period: { from: new Date(2023, 4, 10) },
 		skills: getSkills('js'),
 		name: 'System Analyst',
-		color: 'red',
+		color: 'lightgreen',
 		links: [],
 		logo: Assets.Insead,
 		shortDescription: 'Membre de l\'équipe IT de l\'Insead'

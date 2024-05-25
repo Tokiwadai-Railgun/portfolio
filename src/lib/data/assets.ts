@@ -4,7 +4,7 @@ import { base } from '$app/paths';
 
 const gh = (file: string) => `${base}/logos/${file}`;
 
-const a = (light: string, dark?: string): Asset =>
+export const a = (light: string, dark?: string): Asset =>
 	dark ? { dark: gh(dark), light: gh(light) } : gh(light);
 
 const Assets = {

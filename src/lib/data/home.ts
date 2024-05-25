@@ -7,6 +7,8 @@ export const name = 'Arthur';
 
 export const lastName = 'Deuez - - Scheidbach';
 
+export const surname = "Fuyuki"
+
 export const description =
 	'Etudiant en BTS SIO SLAM 1ère année';
 

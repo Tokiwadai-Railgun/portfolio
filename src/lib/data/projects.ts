@@ -20,20 +20,21 @@ export const items: Array<Project> = [
 		type: 'Discord Bot'
 	},
 	{
-		slug: 'slick-portfolio-svelte',
+		slug: 'portfolio',
 		color: '#ff3e00',
-		description:
-			'A Vercel-like developer portfolio website template made with Typescript and SvelteKit.',
+		description: // String are passed to html style afterward
+			`Portfolio réalisé pour le BTS SIO SLAM en 1ère année en utilisant le framework Svelte et du Typescript. <br> Principalement venu tiré du template 
+    `,
 		shortDescription:
-			'A Vercel-like developer portfolio website template made with Typescript and SvelteKit.',
-		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
+			'Portfolio réalisé pendant la 1ère année en BTS SIO SLAM',
+		links: [{ to: 'https://github.com/Tokiwadai-Railgun/Tokiwadai-Railgun.github.io', label: 'GitHub' }],
 		logo: Assets.Svelte,
-		name: 'Slick Portfolio',
+		name: 'Portfolio',
 		period: {
-			from: new Date()
+			from: new Date(2024, 4, 1)
 		},
 		skills: getSkills('svelte', 'ts', 'tailwind', 'sass'),
-		type: 'Website Template',
+		type: 'Site',
 		screenshots: [
 			{
 				label: 'screen 1',

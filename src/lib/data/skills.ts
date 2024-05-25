@@ -147,3 +147,34 @@ export const groupByCategory = (
 
 	return out;
 };
+
+// groupByCategory function altternative to handle skill array as an input
+export const groupByCategoryAlt = (inputItems: Array<Skill>) => {
+  const out: ReturnType<typeof groupByCategory> = [];
+  const other: Array<Skill> = [];
+
+	inputItems.forEach((item) => {
+    // first check if item have a catefory other way push it to the other category
+    if (!item.category) {
+      other.push(item)
+      return;
+    }
+
+    // get the category from the output
+    let category = out.find((it) => it.category.slug === item.category?.slug)
+    // If not existing then add it
+    if (!category) {
+      category = { items: [], category: item.category}
+      out.push(category)
+    }
+
+    category.items.push(item)
+  })
+
+  // If there is elements in the other category then add it to the ouput
+  if (other.length != 0) {
+    out.push({ category: { name: "Others", slug:"others"}, items: other})
+  }
+
+  return out;
+}
