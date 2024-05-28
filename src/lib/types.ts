@@ -82,3 +82,19 @@ export interface Education<S extends string = string> extends Item<S> {
 	subjects: Array<string>;
 	degree: string;
 }
+
+export interface Company {
+  name: string;
+  address: string;
+  logo: string;
+  description: string;
+}
+
+export interface GroupMember<S extends string = string> {
+  slug: S;
+  name: string;
+  description: string;
+  company: Company;
+  cv: string;
+  photo: Asset
+}

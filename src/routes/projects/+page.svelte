@@ -89,9 +89,6 @@
 	{:else}
 		<div class="projects-list mt-5">
 			{#each projects as project}
-        <script>
-          console.log(project)
-        </script>
 				<ProjectCard {project} />
 			{/each}
 		</div>

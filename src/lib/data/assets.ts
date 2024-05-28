@@ -75,7 +75,10 @@ const Assets = {
   Francoispermier: a('francoispermier.png'),
   Utec: a('utec.svg'),
   IzunaHatsuse: a('izuna.png'),
-  Insead: a('insead.png')
+  Insead: a('insead.png'),
+  Anthony: a('anthony.png'),
+  Maxence: a('maxence.jpg'),
+  Thomas: a('thomas.png')
 };
 
 export default Assets;
