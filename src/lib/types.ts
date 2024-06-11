@@ -8,7 +8,9 @@ export enum Platform {
 	Email = 'email',
 	Facebook = 'facebook',
 	Youtube = 'youtube',
-  Codewars = 'codewars'
+  Codewars = 'codewars',
+  Exercism= "exercism",
+
 }
 
 export type Icon = `i-${string}-${string}`;

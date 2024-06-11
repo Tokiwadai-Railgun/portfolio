@@ -15,12 +15,8 @@ export const description =
 export const links: Array<{ platform: Platform; link: string }> = [
 	{ platform: Platform.GitHub, link: 'https://github.com/tokiwadai-railgun' },
 	{
-		platform: Platform.Linkedin,
-		link: 'https://www.linkedin.com/'
-	},
-	{
 		platform: Platform.StackOverflow,
-		link: 'https://stackoverflow.com/'
+		link: 'https://stackoverflow.com/users/25469988/fuyuki'
 	},
 	{
 		platform: Platform.Email,
@@ -29,7 +25,7 @@ export const links: Array<{ platform: Platform; link: string }> = [
   {
     platform: Platform.Codewars,
     link: 'https://www.codewars.com/users/Tokiwadai-Railgun'
-  }
+  },
 ];
 
-export const skills = getSkills('js', 'html', 'svelte', 'ts', 'go');
+export const skills = getSkills('js', 'svelte', 'ts', 'rust', 'docker');

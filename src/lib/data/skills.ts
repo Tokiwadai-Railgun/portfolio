@@ -103,6 +103,14 @@ export const items = [
     logo: Assets.Docker,
     name: "Docker",
     category: "devtools"
+  }),
+  defineSkill({
+    slug: "rust",
+    color: "orange",
+    description: "langage bas niveau",
+    logo: Assets.Ferris,
+    name: "Rust",
+    category: "pro-lang"
   })
 ] as const;
 

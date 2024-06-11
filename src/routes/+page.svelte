@@ -9,6 +9,7 @@
 	import { isBlank } from '@riadh-adrani/utils';
 	import { getPlatfromIcon } from '$lib/utils';
 	import Chip from '$lib/components/Chip/Chip.svelte';
+  import { base } from '$app/paths';
 
 	const isEmail = (email: string): boolean => {
 		const reg =
@@ -41,7 +42,7 @@
 				</a>
 			{/each}
 		</div>
-    <Chip size={'1.25em'}>Télécharger mon CV</Chip>
+    <Chip href={`${base}/files/cv_arthur.pdf`} size={'1.25em'}>Télécharger mon CV</Chip>
   </div>
 	<Carrousel items={skills ?? skillsItems} />
 </div>
