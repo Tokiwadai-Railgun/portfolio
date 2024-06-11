@@ -3,7 +3,7 @@ import mysql from "mysql2/promise"
 const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD
 // import.meta.env.DATABASE_PASSWORD
 
-let mysqlcon: Promise<mysql.Connection> = null
+let mysqlcon = null
 
 export function mysqlconFn() {
     if (!mysqlcon) {
