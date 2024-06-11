@@ -1,7 +1,7 @@
 import mysql from "mysql2/promise"
 // import { DATABASE_PASSWORD } from "$env/static/private"
 const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD
-console.log("DATABASE_PASSWORD": DATABASE_PASSWORD);
+console.log("DATABASE_PASSWORD", DATABASE_PASSWORD);
 // import.meta.env.DATABASE_PASSWORD
 
 let mysqlcon = null
