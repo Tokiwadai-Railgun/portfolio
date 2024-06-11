@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { title } from '@data/skills';
-	import * as projects from '@data/projects';
-	import * as experiences from '@data/experience';
 
 	import { base } from '$app/paths';
 	import { getAssetURL } from '$lib/data/assets';
@@ -61,15 +59,17 @@
 			</div>
 			<div class="flex flex-row gap-1 self-stretch flex-wrap ">
 				<div class="px-10px">
-					{#each related as item}
-						<Chip
-							classes="inline-flex flex-row items-center justify-center"
-							href={`${base}${item.url}`}
-						>
-							<CardLogo src={item.img} alt={item.name} radius={'0px'} size={15} classes="mr-2" />
-							<span class="text-[0.9em]">{item.display}</span>
-						</Chip>
-					{/each}
+          {#if related}
+            {#each related as item}
+              <Chip
+                classes="inline-flex flex-row items-center justify-center"
+                href={`${base}${item.url}`}
+              >
+                <CardLogo src={item.img} alt={item.name} radius={'0px'} size={15} classes="mr-2" />
+                <span class="text-[0.9em]">{item.display}</span>
+              </Chip>
+            {/each}
+          {/if}
 				</div>
 			</div>
 		</div>

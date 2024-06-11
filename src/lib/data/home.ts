@@ -28,7 +28,7 @@ export const links: Array<{ platform: Platform; link: string }> = [
 	},
   {
     platform: Platform.Codewars,
-    link: ''
+    link: 'https://www.codewars.com/users/Tokiwadai-Railgun'
   }
 ];
 

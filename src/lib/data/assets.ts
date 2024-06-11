@@ -78,7 +78,8 @@ const Assets = {
   Insead: a('insead.png'),
   Anthony: a('anthony.png'),
   Maxence: a('maxence.jpg'),
-  Thomas: a('thomas.png')
+  Thomas: a('thomas.png'),
+  Arthur: a('arthur.svg')
 };
 
 export default Assets;

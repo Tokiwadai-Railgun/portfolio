@@ -21,6 +21,7 @@ export async function load({ params }: { params: Record<string, string> }) {
     // Now get related Projects
     const relatedQuery = `
     SELECT 
+        p.slug,
         p.name, 
         p.logo as img,
         CONCAT(p.name, ' (Project)') as display,
@@ -32,16 +33,15 @@ export async function load({ params }: { params: Record<string, string> }) {
     JOIN 
         skills s ON s.slug = ps.skill_slug
     WHERE 
-        s.slug = 'discordjs';`;
+        s.slug = '${params.slug}';`;
 
     let relatedProjectResult = await mysqlconn.query(relatedQuery).then(function([rows, fields]){
       return rows;
     })
 
-    console.log(relatedProjectResult)
-
     relatedProjectResult.forEach(project => {
       project.img = a(project.img)
+      project.url = `/projects/${project.slug}`
     });
 
 

@@ -8,6 +8,7 @@
 	import { title, items } from '@data/education';
 	import type { Education } from '$lib/types';
 	import { getTimeDiff } from '$lib/utils';
+	import { base } from '$app/paths';
 
 	let search = '';
 
@@ -51,7 +52,7 @@
 						<UIcon icon="i-carbon-condition-point" />
 					</div>
 					<div class="col flex-1 items-stretch">
-						<Card>
+						<Card href={`${base}/education/${education.slug}`}>
 							<div class="flex-1 col gap-2 items-stretch">
 								<img
 									src={getAssetURL(education.logo)}

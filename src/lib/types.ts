@@ -96,5 +96,11 @@ export interface GroupMember<S extends string = string> {
   description: string;
   company: Company;
   cv: string;
-  photo: Asset
+  photo: Asset,
+  specialite: Specialite
+}
+
+export enum Specialite {
+  SISR = "SISR",
+  SLAM = "SLAM"
 }
