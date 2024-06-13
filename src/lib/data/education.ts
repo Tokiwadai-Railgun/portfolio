@@ -16,11 +16,23 @@ export const items: Array<Education> = [
 	},
 	{
 		degree: 'BTS SIO SLAM',
-		description: `L'UTEC d'Avon est un établissement d'enseignement supérieur proposant une variété de formations dans différents secteurs. Actuellement, j'y poursuis mon BTS SIO SLAM (Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métier).
+		description: ` # l'Utec en quelques mots
+## Présentation
+L'UTEC d'Avon est un établissement d'enseignement supérieur proposant une variété de formations dans différents secteurs. Actuellement, j'y poursuis mon BTS SIO SLAM (Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métier).
 
+# Contenus des cours
 On y vois divers langages de programmation, notamment Python, Java et les langages du web accompagnés des cours de matières générales telles que la Culture Générale et Expression, l'Anglais, et le Commerce Economie Juridique et Management.
 
-En tant qu'étudiant en option SLAM, mon focus est principalement sur le développement d'applications. J'ai l'opportunité d'explorer les principes du développement logiciel, de concevoir et de mettre en œuvre des applications répondant aux besoins spécifiques des organisations.`,
+En tant qu'étudiant en option SLAM, mon focus est principalement sur le développement d'applications. J'ai l'opportunité d'explorer les principes du développement logiciel, de concevoir et de mettre en œuvre des applications répondant aux besoins spécifiques des organisations.
+
+# En 2023 l'UTEC c'est : 
+\`\`89%\`\` de taux d'obtention de la certification
+
+\`\`85%\`\` de taux d'insertion dans l'emploie à 6 mois
+
+\`\`100%\`\` de taux de poursuite d'études
+
+\`\`64%\`\` de taux de satisfaction édutiants `,
 		location: 'UTEC Avon',
 		logo: Assets.Utec,
 		name: 'UTEC Avon',

@@ -79,7 +79,7 @@ const Assets = {
   Anthony: a('anthony.png'),
   Maxence: a('maxence.jpg'),
   Thomas: a('thomas.png'),
-  Arthur: a('arthur.svg'),
+  Arthur: a('arthur.png'),
   Exercism: a('exercism.svg'),
   Ferris: a('ferris.svg')
 };

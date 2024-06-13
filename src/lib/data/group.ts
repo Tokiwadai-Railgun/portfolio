@@ -46,13 +46,20 @@ export const items: Array<GroupMember> = [
   },
   {
     slug: "arthur",
-    description: `Bonjour
-Je m'appelle Arthur Deuez - - Scheidbach, étudiant en première année de BTS Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métier (SIO SLAM). Passionné par le développement, je consacre une grande partie de mon temps libre à l'apprentissage et à la réalisation de divers projets.
+    description: `
+# Présentations
+Bonjour  
+Je m'appelle Arthur Deuez - - Scheidbach, étudiant en première année de BTS Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métier (SIO SLAM). Passionné par le développement, je consacre une grande partie de mon temps libre à l'apprentissage et à la réalisation de divers projets.  
 
-J'ai travaillé sur plusieurs reproductions de logiciels populaires tels que Docker et Git, en utilisant le site Codecrafters pour perfectionner mes compétences. Mon projet le plus ambitieux à ce jour est Izuna Hatsuse, un bot Discord développé en JavaScript avec Node.js et la bibliothèque discord.js. Ce bot est conçu pour fonctionner sur un serveur, offrant diverses fonctionnalités interactives pour les utilisateurs de Discord.
+# Projets et Poursuite d'études
+Actuellement je perfectionne mes compétencse en reproduisant des logiciels populaire tel que docker ou git via le site codecrafters. Mon projet le plus ambitieux à ce jour est Izuna Hatsuse, un bot Discord développé en JavaScript avec Node.js et la bibliothèque discord.js, qui a pour but de faciliter la modérations de différents serveurs discords  
 
-Actuellement, j'explore le langage Rust dans le but de créer des logiciels encore plus complexes et performants. Mon objectif est de continuer à développer mes compétences et de me lancer dans des projets innovants qui combinent créativité et technologie
-Merci de visiter mon portfolio et de découvrir mes réalisations !`,
+Actuellement, j'explore le langage \`\`Rust\`\` dans le but de créer des logiciels et performants. Mon objectif est de continuer à développer mes compétences et de me lancer dans le développement au plus proche de la machine.  
+Merci de visiter mon portfolio et de découvrir mes réalisations !
+
+Pour ce qui est des études je compte au moins pourquivre jusqu'au master en développement.
+`,
+
     photo: Assets.Arthur,
     name: "Arthur Deuez -- Scheidbach",
     company: {

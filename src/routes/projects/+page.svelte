@@ -12,6 +12,8 @@
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
+	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
+	import CardDivider from '$lib/components/Card/CardDivider.svelte';
 
 	interface SkillFilter extends Skill {
 		isSelected?: boolean;
@@ -73,27 +75,20 @@
 	});
 </script>
 
-<SearchPage {title} on:search={onSearch}>
-	<div class="projects-filters">
-		{#each filters as tech}
-			<Chip active={tech.isSelected} classes={'text-0.8em'} on:click={() => onSelected(tech.slug)}
-				>{tech.name}</Chip
-			>
-		{/each}
-	</div>
-	{#if displayed.length === 0}
-		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
-			<UIcon icon="i-carbon-cube" classes="text-3.5em" />
-			<p class="font-300">Could not find anything...</p>
-		</div>
-	{:else}
-		<div class="projects-list mt-5">
-			{#each projects as project}
-				<ProjectCard {project} />
-			{/each}
-		</div>
-	{/if}
-</SearchPage>
+<MainTitle>{title}</MainTitle>
+<CardDivider/>
+{#if displayed.length === 0}
+  <div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
+    <UIcon icon="i-carbon-cube" classes="text-3.5em" />
+    <p class="font-300">Could not find anything...</p>
+  </div>
+{:else}
+  <div class="projects-list mt-5">
+    {#each projects as project}
+      <ProjectCard {project} />
+    {/each}
+  </div>
+{/if}
 
 <style lang="scss">
 	.projects-list {
