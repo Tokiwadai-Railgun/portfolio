@@ -5,7 +5,7 @@
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import { getAssetURL } from '$lib/data/assets';
 
-	import { title, items } from '@data/education';
+	import { title, items } from '@data/etudes';
 	import type { Education } from '$lib/types';
 	import { getTimeDiff } from '$lib/utils';
 	import { base } from '$app/paths';
@@ -41,7 +41,7 @@
 			<div
 				class="w-[0.5px] hidden lg:flex top-0 bottom-0 py-50px bg-[var(--border)] absolute rounded"
 			/>
-			{#each result as education, index (education.slug)}
+			{#each result as etudes, index (etudes.slug)}
 				<div
 					class={`flex ${
 						index % 2 !== 0 ? 'flex-row' : 'flex-row-reverse'
@@ -52,22 +52,22 @@
 						<UIcon icon="i-carbon-condition-point" />
 					</div>
 					<div class="col flex-1 items-stretch">
-						<Card href={`${base}/education/${education.slug}`}>
+						<Card href={`${base}/etudes/${etudes.slug}`}>
 							<div class="flex-1 col gap-2 items-stretch">
 								<img
-									src={getAssetURL(education.logo)}
-									alt={education.organization}
+									src={getAssetURL(etudes.logo)}
+									alt={etudes.organization}
 									height="50"
 									width="50"
 									class="mb-5"
 								/>
-								<div class="text-[1.3em]">{education.degree}</div>
-								<div>{education.organization}</div>
+								<div class="text-[1.3em]">{etudes.degree}</div>
+								<div>{etudes.organization}</div>
 								<div class="text-[var(--accent-text)] text-[0.9em] font-200 mb-2">
-									{education.location} · {getTimeDiff(education.period.from, education.period.to)}
+									{etudes.location} · {getTimeDiff(etudes.period.from, etudes.period.to)}
 								</div>
 								<div class="row flex-wrap gap-1">
-									{#each education.subjects as subject}
+									{#each etudes.subjects as subject}
 										<Chip>{subject}</Chip>
 									{/each}
 								</div>

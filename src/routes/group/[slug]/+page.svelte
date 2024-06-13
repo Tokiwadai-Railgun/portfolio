@@ -9,7 +9,6 @@
   import type { GroupMember } from "$lib/types";
   export let data: {groupMember?: GroupMember}
 
-  console.log(data.groupMember)
   $: title = data.groupMember ? `${data.groupMember.name}` : 'Inconnue'
 </script>
 

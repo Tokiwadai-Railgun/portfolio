@@ -10,7 +10,7 @@ export const lastName = 'Deuez - - Scheidbach';
 export const surname = "Fuyuki"
 
 export const description =
-	'Etudiant en BTS SIO SLAM 1ère année';
+	"Etudiant en développement, passioné par les mangas et les jeux vidéos";
 
 export const links: Array<{ platform: Platform; link: string }> = [
 	{ platform: Platform.GitHub, link: 'https://github.com/tokiwadai-railgun' },

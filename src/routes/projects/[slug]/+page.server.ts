@@ -1,16 +1,3 @@
-// import { items } from '@data/projects';
-
-// export function load({ params }: { params: Record<string, string> }) {
-// 	if (params.slug) {
-// 		const project = items.find((item) => {
-// 			return item.slug === params.slug;
-// 		});
-
-// 		return { project };
-// 	}
-// }
-
-
 import { mysqlconFn } from '$lib/utils/mysql';
 import { a } from '$lib/data/assets';
 
@@ -29,7 +16,7 @@ export async function load({ params }: { params: Record<string, string>}) {
       start_date, 
       end_date, 
       type, 
-      JSON_ARRAYAGG(JSON_OBJECT('to', \`to\`, 'label', label)) AS links,
+      JSON_ARRAYAGG(JSON_OBJECT('to', \`to\`, 'label', link.label)) AS links,
       JSON_ARRAYAGG(JSON_OBJECT(
           'slug', s.slug,
           'color', s.color,
@@ -37,7 +24,8 @@ export async function load({ params }: { params: Record<string, string>}) {
           'logo', s.logo,
           'name', s.name,
           'category', s.category
-      )) AS skills
+      )) AS skills,
+      JSON_ARRAYAGG(JSON_OBJECT('label', p_screen.\`label\`, 'src', src)) AS screenshots
       FROM 
           project 
       JOIN 
@@ -46,8 +34,10 @@ export async function load({ params }: { params: Record<string, string>}) {
           project_skill p_s ON p_s.project_slug = project.slug
       JOIN 
           skills s ON s.slug = p_s.skill_slug
+      JOIN
+        project_screenshots p_screen ON p_screen.project_slug = project.slug
       WHERE 
-          project.slug = 'izuna-hatsuse'
+          project.slug = '${params.slug}'
       GROUP BY 
           slug, color, description, short_description, logo, name, start_date, end_date, type;`;
 
@@ -57,15 +47,16 @@ export async function load({ params }: { params: Record<string, string>}) {
       let result = await mysqlconn.query(query).then(function([rows, fields]){
         return rows;
       })
-
       // forming the period object in the result
       // Since the query returns as much rows as skills we take the first row to make the project object and then loop to retrieve all skills
       
       // Filtering skills array to avoid double
       result[0].skills = result[0].skills.filter((skill, index, skillArray) => index === skillArray.findIndex(s => s.slug === skill.slug))
-
+      // Filtering screenshots
+      result[0].screenshots = result[0].screenshots.filter((screenshot, index, screenshotsArray) => index === screenshotsArray.findIndex(s => s.label === screenshot.label))
+      // Filtering links
       result[0].links = result[0].links.filter((link, index, linkArray) => index === linkArray.findIndex(l => l.to === link.to))
-      let project = result[0];
+
       for (let project of result) {
         let period = project.end_date ?  {from: project.start_date, to: project.end_date} : {from: project.start_date}
         project.period = period
@@ -77,7 +68,6 @@ export async function load({ params }: { params: Record<string, string>}) {
           // checking if the item is present mutliple time
           skill.logo = a(skill.logo)
         }
-
       }
 
       return {project: result[0]}

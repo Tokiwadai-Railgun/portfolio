@@ -47,7 +47,7 @@ export const items: Array<GroupMember> = [
   {
     slug: "arthur",
     description: `
-# Présentations
+# Présentation
 Bonjour  
 Je m'appelle Arthur Deuez - - Scheidbach, étudiant en première année de BTS Services Informatiques aux Organisations, option Solutions Logicielles et Applications Métier (SIO SLAM). Passionné par le développement, je consacre une grande partie de mon temps libre à l'apprentissage et à la réalisation de divers projets.  
 

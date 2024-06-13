@@ -3,7 +3,7 @@ export const items = [
 	{ title: 'Projets', to: '/projects', icon: 'i-carbon-cube' },
 	{ title: 'Groupe', to: '/group', icon: 'i-carbon-group' },
 	{ title: 'Experience', to: '/experience', icon: 'i-carbon-development' },
-	{ title: 'Education', to: '/education', icon: 'i-carbon-education' },
+	{ title: 'Études', to: '/etudes', icon: 'i-carbon-education' },
 	{ title: 'Veille', to: '/veille', icon: 'i-carbon-result' },
 	{ title: 'Connexion', to: '/login', icon: 'i-carbon-user' },
 ] as const;

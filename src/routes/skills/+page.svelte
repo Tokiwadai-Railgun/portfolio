@@ -17,8 +17,6 @@
 		const query = e.detail.search;
 
 		result = groupByCategory(query.trim().toLowerCase());
-
-		console.log(result);
 	};
 </script>
 
