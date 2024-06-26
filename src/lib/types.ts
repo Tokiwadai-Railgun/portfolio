@@ -99,10 +99,16 @@ export interface GroupMember<S extends string = string> {
   company: Company;
   cv: string;
   photo: Asset,
-  specialite: Specialite
+  specialite: Specialite,
+  links: Array<Link>
 }
 
 export enum Specialite {
   SISR = "SISR",
   SLAM = "SLAM"
+}
+
+export interface jwt {
+  exp: number,
+  sub: string
 }

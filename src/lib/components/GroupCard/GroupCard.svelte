@@ -10,6 +10,7 @@
 	import Chip from "../Chip/Chip.svelte";
 
   export let groupMember: GroupMember;
+  export let downloadCV: string;
 </script>
 
 <Card href={`${base}/group/${groupMember.slug}`}>
@@ -31,9 +32,12 @@
       <UIcon icon={"i-carbon-building"} />
       {groupMember.company.name}
     </p>
-    <a href={`${base}/files/${groupMember.cv}`}>
-      <Chip size={'0.25em'}>Télécharger le CV</Chip>
-    </a>
+    {#if downloadCV == groupMember.slug}
+      <!-- TODO : afficher uniquement si nécessaire-->
+      <a href={`${base}/files/${groupMember.cv}`}>
+        <Chip size={'0.25em'}>Télécharger le CV</Chip>
+      </a>
+    {/if}
   </div>
 </Card>
 

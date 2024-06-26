@@ -7,6 +7,7 @@
 	import TabTitle from "$lib/components/TabTitle.svelte";
   import { getAssetURL } from "$lib/data/assets";
   import type { GroupMember } from "$lib/types";
+  import Chip from "$lib/components/Chip/Chip.svelte";
   export let data: {groupMember?: GroupMember}
 
   $: title = data.groupMember ? `${data.groupMember.name}` : 'Inconnue'
@@ -33,6 +34,16 @@
 					</p>
 					<div class="w-75%">
 						<CardDivider />
+            <div class="row-center">
+              {#each data.groupMember.links as item}
+                <Chip href={item.to}>
+                  <div class="row-center gap-2">
+                    <UIcon icon="i-carbon-link" />
+                    <span>{item.label}</span>
+                  </div>
+                </Chip>
+              {/each}
+            </div>
 					</div>
 				</div>
 			</Banner>

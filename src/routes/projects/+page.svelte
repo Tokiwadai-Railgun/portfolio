@@ -8,9 +8,7 @@
 
 	import type { Project, Skill } from '$lib/types';
 
-	import Chip from '$lib/components/Chip/Chip.svelte';
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
-	import SearchPage from '$lib/components/SearchPage.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
 	import CardDivider from '$lib/components/Card/CardDivider.svelte';

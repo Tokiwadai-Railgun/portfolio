@@ -22,7 +22,7 @@ export const items: Array<Project> = [
 	{
 		slug: 'portfolio',
 		color: '#ff3e00',
-		description: // String are passed to html style afterward
+		description: // String are passed to markdown afterward
 			`Portfolio réalisé pour le BTS SIO SLAM en 1ère année en utilisant le framework Svelte et du Typescript. <br> Principalement venu tiré du template 
     `,
 		shortDescription:
