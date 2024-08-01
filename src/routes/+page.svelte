@@ -1,48 +1,59 @@
-<script lang="ts">
-	import Carrousel from '$lib/components/Carrousel/Carrousel.svelte';
-	import Icon from '$lib/components/Icon/Icon.svelte';
-	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
-	import { titleSuffix } from '@data/app';
-	import { links, description, lastName, name, title, skills } from '@data/home';
-	import { items as skillsItems } from '@data/skills';
-	import { useTitle } from '$lib/utils/helpers';
-	import { isBlank } from '@riadh-adrani/utils';
-	import { getPlatfromIcon } from '$lib/utils';
-	import Chip from '$lib/components/Chip/Chip.svelte';
-  import { base } from '$app/paths';
-
-	const isEmail = (email: string): boolean => {
-		const reg =
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-		return !isBlank(email) && reg.test(email);
-	};
+<script>
+	import Counter from './Counter.svelte';
+	import welcome from '$lib/images/svelte-welcome.webp';
+	import welcome_fallback from '$lib/images/svelte-welcome.png';
 </script>
 
 <svelte:head>
-	<title>{useTitle(title, titleSuffix)}</title>
+	<title>Home</title>
+	<meta name="description" content="Svelte demo app" />
 </svelte:head>
-<div
-	class="col self-center flex-1 md:flex-row md:slef-stretch justify-center lg:justify-between items-center p-y-0px p-x-10px"
->
-	<div class="md:flex-1 gap-10px">
-    <MainTitle classes="md:text-left ">{name} {lastName}</MainTitle>
-		<p class="text-[var(--tertiary-text)]  text-center md:text-left text-[1.2em] font-extralight">
-			{description}
-		</p>
-		<div class="row justify-center md:justify-start p-y-15px p-x-0px gap-2">
-			{#each links as link}
-				<a
-					class="decoration-none"
-					href={`${isEmail(link.link) ? 'mailto:' : ''}${link.link}`}
-					target="_blank"
-					rel="noreferrer"
-				>
-					<Icon icon={getPlatfromIcon(link.platform)} color={'var(--accent-text)'} size={'20px'} />
-				</a>
-			{/each}
-		</div>
-    <Chip href={`${base}/files/cv_arthur.pdf`} size={'1.25em'}>Télécharger mon CV</Chip>
-  </div>
-	<Carrousel items={skills ?? skillsItems} />
-</div>
+
+<section>
+	<h1>
+		<span class="welcome">
+			<picture>
+				<source srcset={welcome} type="image/webp" />
+				<img src={welcome_fallback} alt="Welcome" />
+			</picture>
+		</span>
+
+		to your new<br />SvelteKit app
+	</h1>
+
+	<h2>
+		try editing <strong>src/routes/+page.svelte</strong>
+	</h2>
+
+	<Counter />
+</section>
+
+<style>
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 0.6;
+	}
+
+	h1 {
+		width: 100%;
+	}
+
+	.welcome {
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding: 0 0 calc(100% * 495 / 2048) 0;
+	}
+
+	.welcome img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		display: block;
+	}
+</style>

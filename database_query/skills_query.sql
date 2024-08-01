@@ -1,1 +1,0 @@
-SELECT skills.slug, skills.name, logo, category FROM skills JOIN skills_category ON skills.category = skills_category.slug 
