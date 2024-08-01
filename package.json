@@ -47,8 +47,13 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@nestjs/graphql": "^12.2.0",
+		"@sveltejs/adapter-cloudflare": "^4.7.0",
+		"apollo-server-express": "^3.13.0",
 		"dayjs": "^1.11.10",
 		"dotenv": "^16.4.5",
+		"graphql": "^16.9.0",
+		"graphql-tools": "^9.0.1",
 		"jsonwebtoken": "^9.0.2",
 		"mysql2": "^3.9.7"
 	}
