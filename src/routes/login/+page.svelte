@@ -8,6 +8,8 @@
   $: userId = ""
   $: password = ""
 
+  export const prerender = false;
+
   let loggedIn = data.connected;
   let username = data.username
 

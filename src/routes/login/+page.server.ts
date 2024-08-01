@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { verifyToken } from "$lib/utils/jwt"
 import type { jwt } from "$lib/types"
 import { redirect } from "@sveltejs/kit"
@@ -16,7 +18,7 @@ export const actions = {
   deleteCookie: async ({cookies}) => {
     if (cookies.get('accessToken')) {
       cookies.delete("accessToken", {path: '/'})
-      goto('/login')
+      throw redirect(302, '/login')
     }
   }
 }
