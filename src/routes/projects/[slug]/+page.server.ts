@@ -1,11 +1,9 @@
-import { mysqlconFn } from '$lib/utils/mysql';
 import { a } from '$lib/data/assets';
 
-export async function load({ params }: { params: Record<string, string>}) {
+export async function load({ params, platform }: { params: Record<string, string>}) {
   if (params.slug) {
 
-    const mysqlconn = await mysqlconFn()
-    const query = `
+    const { results } =await platform.env.DB.prepare (`
     SELECT 
       project.slug, 
       project.color, 
@@ -37,27 +35,25 @@ export async function load({ params }: { params: Record<string, string>}) {
       JOIN
         project_screenshots p_screen ON p_screen.project_slug = project.slug
       WHERE 
-          project.slug = '${params.slug}'
+          project.slug = ?
       GROUP BY 
-          slug, color, description, short_description, logo, name, start_date, end_date, type;`;
+          slug, color, description, short_description, logo, name, start_date, end_date, type;`
+    ).bind(params.slug).all();
 
     // Query will return one and only project in multiple rows, one for each skills
 
     try {
-      let result = await mysqlconn.query(query).then(function([rows, fields]){
-        return rows;
-      })
       // forming the period object in the result
       // Since the query returns as much rows as skills we take the first row to make the project object and then loop to retrieve all skills
       
       // Filtering skills array to avoid double
-      result[0].skills = result[0].skills.filter((skill, index, skillArray) => index === skillArray.findIndex(s => s.slug === skill.slug))
+      results[0].skills = results[0].skills.filter((skill, index, skillArray) => index === skillArray.findIndex(s => s.slug === skill.slug))
       // Filtering screenshots
-      result[0].screenshots = result[0].screenshots.filter((screenshot, index, screenshotsArray) => index === screenshotsArray.findIndex(s => s.label === screenshot.label))
+      results[0].screenshots = results[0].screenshots.filter((screenshot, index, screenshotsArray) => index === screenshotsArray.findIndex(s => s.label === screenshot.label))
       // Filtering links
-      result[0].links = result[0].links.filter((link, index, linkArray) => index === linkArray.findIndex(l => l.to === link.to))
+      results[0].links = results[0].links.filter((link, index, linkArray) => index === linkArray.findIndex(l => l.to === link.to))
 
-      for (let project of result) {
+      for (let project of results) {
         let period = project.end_date ?  {from: project.start_date, to: project.end_date} : {from: project.start_date}
         project.period = period
 
@@ -70,7 +66,7 @@ export async function load({ params }: { params: Record<string, string>}) {
         }
       }
 
-      return {project: result[0]}
+      return {project: results[0]}
     } catch (err){
       console.log("Error fetching data from table \"project\"")
       console.log(err)

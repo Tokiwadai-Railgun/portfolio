@@ -1,25 +1,21 @@
-import { mysqlconFn } from '$lib/utils/mysql';
 import { a } from '$lib/data/assets';
 
-export async function load({ params }: { params: Record<string, string> }) {
+export async function load({ params, platform }: { params: Record<string, string> }) {
   if (!params.slug) return null
-  const mysqlconn = await mysqlconFn()
-  const query = `
+  const { results } = await platform.env.DB.prepare(`
     SELECT skills.slug, skills.name, logo, description, JSON_OBJECT('name', category.name, 'slug', category.slug) AS category 
     FROM skills JOIN skills_category category 
     ON skills.category = category.slug
-    WHERE skills.slug = '${params.slug}';
-`
+    WHERE skills.slug = ?`
+  ).bind(params.slug).all();
+
 
   try {
-    let result = await mysqlconn.query(query).then(function([rows, fields]){
-      return rows;
-    })
 
-    result[0].logo = a(result[0].logo)
+    results[0].logo = a(results[0].logo)
 
     // Now get related Projects
-    const relatedQuery = `
+    const relatedQuery = await platform.env.DB.prepare(`
     SELECT 
         p.slug,
         p.name, 
@@ -33,19 +29,17 @@ export async function load({ params }: { params: Record<string, string> }) {
     JOIN 
         skills s ON s.slug = ps.skill_slug
     WHERE 
-        s.slug = '${params.slug}';`;
+        s.slug = ?;`
+    ).bind(params.slug).all();
 
-    let relatedProjectResult = await mysqlconn.query(relatedQuery).then(function([rows, fields]){
-      return rows;
-    })
 
-    relatedProjectResult.forEach(project => {
+    relatedQuery.results.forEach(project => {
       project.img = a(project.img)
       project.url = `/projects/${project.slug}`
     });
 
 
-    return { skill: result[0], related: relatedProjectResult}
+    return { skill: results[0], related: relatedQuery.results}
   } catch (err) {
     console.log("Error fetching data", err)
   }
