@@ -4,7 +4,7 @@ import { ContractType, type Experience } from '../types';
 
 export const items: Array<Experience> = [
 	{
-		slug: 'system-analyst',
+		slug: 'Apprentis',
 		company: 'Insead',
 		description: `Fondée en 1957, l'INSEAD est une école de commerce internationale de premier plan, offrant une éducation de qualité supérieure à travers ses campus situés en Europe (Fontainebleau, France), en Asie (Singapour) et au Moyen-Orient (Abu Dhabi)
 

@@ -33,17 +33,6 @@ const config = {
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? base : ''
 		},
-    prerender: {
-      handleHttpError: ({ path, referrer, message }) => {
-        // Example: Ignore 405 errors for the /login endpoint
-        if (path === '/login') {
-          console.warn(`Ignored 405 error for ${path} linked from ${referrer}`);
-          return;
-        }
-        // Fail the build for other errors
-        throw new Error(message);
-      }
-    }
 	}
 };
 

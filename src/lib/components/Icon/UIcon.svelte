@@ -4,4 +4,4 @@
 	export let classes = '';
 </script>
 
-<i class={`${icon} ${classes}`} />
+<i class={`${icon} ${classes}`}/>

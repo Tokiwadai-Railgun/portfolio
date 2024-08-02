@@ -10,11 +10,13 @@
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
+		"@iconify-json/carbon": "^1.1.36",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-cloudflare": "^4.7.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"carbon-icons-svelte": "^12.10.0",
 		"sass": "^1.77.8",
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
@@ -31,11 +33,9 @@
 		"dayjs": "^1.11.12",
 		"dompurify": "^3.1.6",
 		"dotenv": "^16.4.5",
-		"jsonwebtoken": "^9.0.2",
 		"marked": "^13.0.3",
 		"marked-gfm-heading-id": "^4.0.0",
 		"marked-mangle": "^1.1.8",
-		"mysql2": "^3.11.0",
 		"prismjs": "^1.29.0",
 		"wrangler": "^3.68.0"
 	}
