@@ -59,6 +59,8 @@
 		el.style.setProperty('margin', margin);
 		el.style.setProperty('--bg-img', bgImg ? `url(${bgImg})` : '');
 	});
+
+  console.log(color)
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->

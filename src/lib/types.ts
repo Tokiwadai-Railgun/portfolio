@@ -112,3 +112,11 @@ export interface jwt {
   exp: number,
   sub: string
 }
+
+export interface Article {
+  slug: string;
+  title: string;
+  review: string;
+  date: Date;
+  tags: Array<string>;
+}

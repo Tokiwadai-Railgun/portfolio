@@ -1,30 +1,33 @@
 <script>
-	import { data, title } from '@data/veille';
-
-	import Chip from '$lib/components/Chip/Chip.svelte';
+  import { title } from '@data/veille';
+  export let data;
 	import CommonPage from '$lib/components/CommonPage.svelte';
+	import ArticleCard from '$lib/components/ArticleCard/ArticleCard.svelte';
 </script>
 
 <CommonPage {title}>
-	<div class="resume">
-		{#if data}
-			<a href={data} download>
-				<Chip size={'1.25em'}>Download</Chip>
-			</a>
-		{:else}
-			<Chip>En cours de développement</Chip>
-		{/if}
+	<div class=".resume mt-5">
+    {#await data.articles}
+      <p>Loading Articles</p>
+    {:then} 
+      {#each data.articles as article}
+        <ArticleCard {article}/>
+      {/each}
+    {/await}
 	</div>
 </CommonPage>
 
 <style lang="scss">
 	.resume {
-		display: flex;
-		justify-content: center;
-		margin-top: 20px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
 
-		& > a {
-			color: inherit;
+		@media (max-width: 1350px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: 850px) {
+			grid-template-columns: repeat(1, 1fr);
 		}
 	}
 </style>

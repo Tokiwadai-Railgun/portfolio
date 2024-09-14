@@ -5,7 +5,6 @@
 	import { title, groupByCategory } from '@data/skills';
 	import { getAssetURL } from '$lib/data/assets';
 
-	import SearchPage from '$lib/components/SearchPage.svelte';
 	import Card from '$lib/components/Card/Card.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import type { Skill } from '$lib/types';
@@ -18,6 +17,7 @@
 
 		result = groupByCategory(query.trim().toLowerCase());
 	};
+
 </script>
 
 <MainTitle>{title}</MainTitle>

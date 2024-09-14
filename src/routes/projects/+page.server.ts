@@ -4,7 +4,7 @@ import { getSkills } from "$lib/data/skills";
 // Getting all projects from the database
 export async function load({ platform }) {
   const { results }= await  platform.env.DB.prepare(`SELECT slug, color, description, short_description AS shortDescription, logo, name, start_date, end_date, skills, type, 
-  JSON_ARRAYAGG(JSON_OBJECT('to',\`to\`, 'label', label)) AS links
+  json_group_array(json_object('to',\`to\`, 'label', label)) AS links
   FROM project 
   JOIN link ON project.slug = link.related_slug GROUP BY slug, color, description, short_description, logo, name, start_date, end_date, skills, type;`
   ).all();
@@ -16,7 +16,11 @@ export async function load({ platform }) {
       project.period = period
 
       project.logo = a(project.logo)
-      project.skills = getSkills(project.skills.split(";"))
+      if (project.skills != "" && project.skills != null) project.skills = getSkills(project.skills.split(";"));
+
+      if (project.period.from) project.period.from = new Date(project.period.from)
+      if (project.period.to) project.period.to = new Date(project.period.to)
+      project.links = JSON.parse(project.links);
     }
 
     return {project: results}

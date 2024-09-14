@@ -4,6 +4,8 @@ export async function load({platform}) {
   const {results} = await platform.env.DB.prepare("SELECT skills.slug, skills.name, logo, JSON_OBJECT('name', category.name, 'slug', category.slug) AS category FROM skills JOIN skills_category category ON skills.category = category.slug;"
   ).all();
 
+  console.log('Hello')
+
   try {
     // For each skills retrieve the logo
     results.forEach((skill) => {

@@ -1,6 +1,5 @@
 <script lang="ts">
   export let data;
-  let projects = data.project;
 
 	import { items, title } from '@data/projects';
 	import * as skills from '@data/skills';
@@ -74,6 +73,8 @@
 </script>
 
 {#await data.project}
+  <p> Loading </p>
+{:then projects}
   <MainTitle>{title}</MainTitle>
   <CardDivider/>
   {#if displayed.length === 0}

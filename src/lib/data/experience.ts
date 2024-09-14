@@ -4,7 +4,7 @@ import { ContractType, type Experience } from '../types';
 
 export const items: Array<Experience> = [
 	{
-		slug: 'Apprentis',
+		slug: 'apprentice',
 		company: 'Insead',
 		description: `Fondée en 1957, l'INSEAD est une école de commerce internationale de premier plan, offrant une éducation de qualité supérieure à travers ses campus situés en Europe (Fontainebleau, France), en Asie (Singapour) et au Moyen-Orient (Abu Dhabi)
 
@@ -16,7 +16,7 @@ Cette expérience enrichit mes compétences pratiques en informatique et me perm
 		location: 'Fontainebleau',
 		period: { from: new Date(2023, 4, 10) },
 		skills: getSkills(''),
-		name: 'System Analyst',
+		name: 'Apprentis',
 		color: 'lightgreen',
 		links: [],
 		logo: Assets.Insead,

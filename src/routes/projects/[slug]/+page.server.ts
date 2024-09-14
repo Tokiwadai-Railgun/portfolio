@@ -1,9 +1,8 @@
 import { a } from '$lib/data/assets';
-
 export async function load({ params, platform }: { params: Record<string, string>}) {
   if (params.slug) {
 
-    const { results } =await platform.env.DB.prepare (`
+    const { results } = await platform.env.DB.prepare(`
     SELECT 
       project.slug, 
       project.color, 
@@ -14,8 +13,8 @@ export async function load({ params, platform }: { params: Record<string, string
       start_date, 
       end_date, 
       type, 
-      JSON_ARRAYAGG(JSON_OBJECT('to', \`to\`, 'label', link.label)) AS links,
-      JSON_ARRAYAGG(JSON_OBJECT(
+      json_group_array(json_object('to', \`to\`, 'label', link.label)) AS links,
+      json_group_array(json_object(
           'slug', s.slug,
           'color', s.color,
           'description', s.description,
@@ -23,7 +22,7 @@ export async function load({ params, platform }: { params: Record<string, string
           'name', s.name,
           'category', s.category
       )) AS skills,
-      JSON_ARRAYAGG(JSON_OBJECT('label', p_screen.\`label\`, 'src', src)) AS screenshots
+      json_group_array(json_object('label', p_screen.\`label\`, 'src', src)) AS screenshots
       FROM 
           project 
       JOIN 
@@ -37,40 +36,42 @@ export async function load({ params, platform }: { params: Record<string, string
       WHERE 
           project.slug = ?
       GROUP BY 
-          slug, color, description, short_description, logo, name, start_date, end_date, type;`
+          project.slug, project.color, project.description, project.short_description, project.logo, project.name, project.start_date, project.end_date, project.type;`
     ).bind(params.slug).all();
 
-    // Query will return one and only project in multiple rows, one for each skills
-
     try {
-      // forming the period object in the result
-      // Since the query returns as much rows as skills we take the first row to make the project object and then loop to retrieve all skills
+      // Parse skills and screenshots as JSON
+      results[0].skills = JSON.parse(results[0].skills);
+      results[0].screenshots = JSON.parse(results[0].screenshots);
+      results[0].links = JSON.parse(results[0].links);
+
+      console.log(typeof results[0].skills);  // Check if it's now an object (array)
+
+      // Filtering skills array to avoid duplicates
+      results[0].skills = results[0].skills.filter((skill, index, skillArray) => index === skillArray.findIndex(s => s.slug === skill.slug));
       
-      // Filtering skills array to avoid double
-      results[0].skills = results[0].skills.filter((skill, index, skillArray) => index === skillArray.findIndex(s => s.slug === skill.slug))
       // Filtering screenshots
-      results[0].screenshots = results[0].screenshots.filter((screenshot, index, screenshotsArray) => index === screenshotsArray.findIndex(s => s.label === screenshot.label))
+      results[0].screenshots = results[0].screenshots.filter((screenshot, index, screenshotsArray) => index === screenshotsArray.findIndex(s => s.label === screenshot.label));
+      
       // Filtering links
-      results[0].links = results[0].links.filter((link, index, linkArray) => index === linkArray.findIndex(l => l.to === link.to))
+      results[0].links = results[0].links.filter((link, index, linkArray) => index === linkArray.findIndex(l => l.to === link.to));
 
       for (let project of results) {
-        let period = project.end_date ?  {from: project.start_date, to: project.end_date} : {from: project.start_date}
-        project.period = period
+        let period = project.end_date ?  { from: project.start_date, to: project.end_date } : { from: project.start_date };
+        project.period = period;
 
-        project.logo = a(project.logo)
+        project.logo = a(project.logo);
 
-        // Now for each skills get the logo properly
+        // Now for each skill, get the logo properly
         for (let skill of project.skills) {
-          // checking if the item is present mutliple time
-          skill.logo = a(skill.logo)
+          skill.logo = a(skill.logo);
         }
       }
 
-      return {project: results[0]}
-    } catch (err){
-      console.log("Error fetching data from table \"project\"")
-      console.log(err)
+      return { project: results[0] };
+    } catch (err) {
+      console.log("Error fetching data from table \"project\"");
+      console.log(err);
     }
   }
-
 }
