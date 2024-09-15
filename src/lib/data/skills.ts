@@ -111,6 +111,14 @@ export const items = [
     logo: Assets.Ferris,
     name: "Rust",
     category: "pro-lang"
+  }),
+  defineSkill({
+    slug: "lua",
+    color: "blue",
+    description: "langage de scripting",
+    logo: Assets.Ferris,
+    name: "Lua",
+    category: "pro-lang"
   })
 ] as const;
 
