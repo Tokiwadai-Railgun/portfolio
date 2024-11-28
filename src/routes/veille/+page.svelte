@@ -1,20 +1,11 @@
 <script>
   import { title } from '@data/veille';
-  export let data;
 	import CommonPage from '$lib/components/CommonPage.svelte';
-	import ArticleCard from '$lib/components/ArticleCard/ArticleCard.svelte';
 </script>
 
 <CommonPage {title}>
-	<div class=".resume mt-5">
-    {#await data.articles}
-      <p>Loading Articles</p>
-    {:then} 
-      {#each data.articles as article}
-        <ArticleCard {article}/>
-      {/each}
-    {/await}
-	</div>
+		<div class=".resume mt-5">
+		</div>
 </CommonPage>
 
 <style lang="scss">

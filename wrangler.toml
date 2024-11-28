@@ -5,8 +5,3 @@ main = "./.cloudflare/worker.js"
 site.bucket = "./.cloudflare/public"
 
 build.command = "npm run build"
-
-[[d1_databases]]
-binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "prod-portfolio-database"
-database_id = "5a1ea557-23b6-4102-a4f7-b6637dbcd49c"

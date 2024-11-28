@@ -1,6 +1,7 @@
 import Assets from './assets';
 import type { Skill, SkillCategory } from '../types';
-import svelte from '../md/svelte.md?raw';
+import git from "../md/git.md?raw"
+import typescript from "../md/typescript.md?raw"
 import { omit, type StringWithAutoComplete } from '@riadh-adrani/utils';
 
 const defineSkillCategory = <S extends string>(data: SkillCategory<S>): SkillCategory<S> => data;
@@ -35,91 +36,97 @@ const defineSkill = <S extends string>(
 };
 
 export const items = [
-	defineSkill({
-		slug: 'js',
-		color: 'yellow',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.JavaScript,
-		name: 'Javascript',
-		category: 'pro-lang'
-	}),
-	defineSkill({
-		slug: 'ts',
-		color: 'blue',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.TypeScript,
-		name: 'Typescript',
-		category: 'pro-lang'
-	}),
-	defineSkill({
-		slug: 'go',
-		color: 'blue',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.Go,
-		name: 'Go',
-		category: 'pro-lang'
-	}),
-	defineSkill({
-		slug: 'css',
-		color: 'blue',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.CSS,
-		name: 'CSS',
-		category: 'markup-style'
-	}),
-	defineSkill({
-		slug: 'html',
-		color: 'orange',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.HTML,
-		name: 'HTML',
-		category: 'markup-style'
-	}),
-	defineSkill({
-		slug: 'svelte',
-		color: 'orange',
-		description: svelte,
-		logo: Assets.Svelte,
-		name: 'Svelte',
-		category: 'library'
-	}),
   defineSkill({
-    slug: "discordjs",
-    color: "blue",
-    description: "Librairie javascript",
-    logo: Assets.Discordjs,
-    name: "Discord.js",
-    category: "library"
+	slug: 'js',
+	color: 'yellow',
+	description:
+		"JavaScript est un langage du web couramment utilisé côté client pour faire des interfaces utilisateur plus fluides. personnelement j'utilise le javascript avec NodeJs pour le lancer côté serveur (c'est notamment le cas pour ce portfolio). Un exemple est Izuna Hatsuse, un bot discord réalisé avec NodeJs pour faire tourner les scripts JS côté serveur, la librairie Discord.js pour interagir avec l'API de Discord ainsi quede nombreuses autres librairies comme Chalk ou Mongoose pour des services tiers.",
+	logo: Assets.JavaScript,
+	name: 'Javascript',
+	category: 'pro-lang'
   }),
   defineSkill({
-    slug: "docker",
-    color: "blue",
-    description: "Docker utilisé pour différents programmes",
-    logo: Assets.Docker,
-    name: "Docker",
-    category: "devtools"
+	slug: 'ts',
+	color: 'blue',
+	description: typescript,
+	logo: Assets.TypeScript,
+	name: 'Typescript',
+	category: 'pro-lang'
   }),
   defineSkill({
-    slug: "rust",
-    color: "orange",
-    description: "langage bas niveau",
-    logo: Assets.Ferris,
-    name: "Rust",
-    category: "pro-lang"
+	slug: 'css',
+	color: 'blue',
+	description:
+		"Accompagné de l'HTML le css fait partis des lagages avec lesquels je susi le moins familié, cependant des applications web comme le dahsboard de ``Izuna HAtsuse`` me permettent de progresser dans le domaine puisque jamais ces projets ne sont accompagnés de framework css comme tailwind, ce portfolio faisant exception'",
+	logo: Assets.CSS,
+	name: 'CSS',
+	category: 'markup-style'
   }),
   defineSkill({
-    slug: "lua",
-    color: "blue",
-    description: "langage de scripting",
-    logo: Assets.Ferris,
-    name: "Lua",
-    category: "pro-lang"
-  })
+	slug: 'html',
+	color: 'orange',
+	description:
+		"Actuellement utilisé avec des framework javascript pour des projets webs, le HTML est une base que je continue d'apprendre 'égulèrement.",
+	logo: Assets.HTML,
+	name: 'HTML',
+	category: 'markup-style'
+  }),
+  defineSkill({
+	slug: 'svelte',
+	color: 'orange',
+	description: "Svelte est un framework JS pour créer des applications Webs, il est utilisé dans ce portfolio à titre d'entrainnement et pour intéragir avec la base de donnée stockant les compétences et les projets.",
+	logo: Assets.Svelte,
+	name: 'Svelte',
+	category: 'library'
+  }),
+  defineSkill({
+	slug: "discordjs",
+	color: "blue",
+	description: "discord.js est une bibliothèque JavaScript open-source conçue pour créer des bots Discord. Elle offre une interface simple pour interagir avec l'API Discord, permettant aux développeurs de créer des bots avec des fonctionnalités avancées telles que la gestion des messages et la création de commandes personnalisées. Reliée à une base de donnée un bot discord peut servir à plusieurs choses comme la modération ou à faire des mini jeux dans des serveurs.",
+	logo: Assets.Discordjs,
+	name: "Discord.js",
+	category: "library"
+  }),
+  defineSkill({
+	slug: "docker",
+	color: "blue",
+	description: "Docker est un logiciel pour créer des conteneurs, des parties réservés du hardware de l'ordinateur au lancement de programmes. Pour l'instant il me sert à faire faire des tests en local le temps d'apprendre plus à l'utiliser, après il servira notamment à push Izuna et d'autres applications sur un serveur VPS.",
+	logo: Assets.Docker,
+	name: "Docker",
+	category: "devtools"
+  }),
+  defineSkill({
+	slug: "rust",
+	color: "orange",
+	description: "Rust est un langage de programmation conçu pour offrir à la fois performance et sécurité, particulièrement en ce qui concerne la gestion de la mémoire. Grâce à son modèle de propriété unique, Rust permet de prévenir les erreurs courantes et les vulnérabilités. Je suis actuellement en train d'apprendre Rust pour développer des applications plus complexes que celles possibles en JavaScript. Mon projet en cours est une alternative à Postman en version terminal, visant à compléter mon setup avec Neovim. Ce projet tire parti des capacités de Rust pour créer une solution rapide, fiable et efficace pour tester et gérer les API directement depuis le terminal.",
+	logo: Assets.Ferris,
+	name: "Rust",
+	category: "pro-lang"
+  }),
+  defineSkill({
+	slug: "lua",
+	color: "blue",
+	description: "Le lua est un langage de script utilisé à plusieurs endroits notamment dans roblox studio et dans les configurations neovim",
+	logo: Assets.Lua,
+	name: "Lua",
+	category: "pro-lang"
+  }),
+  defineSkill({
+	slug: "git",
+	color: "orange",
+	description: git,
+	logo: Assets.Git,
+	name: "Git",
+	category: "devtools"
+  }),
+		defineSkill({
+				slug: "neovim",
+				color:  "",
+				description: "Nevim est un éditeur de texte dans le terminal, personnalisable, il est utilisé pour coder des projets en Rust, Lua et Typescript. Il est configuré pour être utilisé avec plusieurs plugins et configurations personnalisées pour améliorer la productivité et la qualité du code.",
+				logo: Assets.Nvim,
+				name: "Neovim",
+				category: "devtools"
+		})
 ] as const;
 
 export const title = 'Compétences';

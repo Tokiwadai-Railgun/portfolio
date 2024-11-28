@@ -107,7 +107,7 @@
 							>
 								<div
 									class="screenshot aspect-video bg-contain w-100% cursor-pointer"
-									style={`background-image: url(${base}/screenshots/${item.src});`}
+									style={`background-image: url(${item.src});`}
 								/>
 								<p class="text-[var(--tertiary-text)] font-300">{item.label}</p>
 							</div>

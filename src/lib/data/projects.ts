@@ -5,12 +5,18 @@ import Assets from './assets';
 import { getSkills } from './skills';
 import type { Project } from '../types';
 
+// Md files for description
+import izuna_hatsuse from "../md/izuna.md?raw"
+import hana from "../md/hana.md?raw"
+import api_tester from "../md/api-tester.md?raw"
+import git_clone from "../md/git-clone.md?raw"
+
+
 export const items: Array<Project> = [
 	{
 		slug: 'izuna-hatsuse',
 		color: '#c07187',
-		description:
-			'Bot en JS avec la librairie Discord.Js',
+		description: izuna_hatsuse,
 		shortDescription:
 		 'Un bot discord en javascript avec la librairie Discord.js servant ',
 		links: [{ to: 'https://github.com/Tokiwadai-Railgun/Izuna', label: 'GitHub' }],
@@ -23,48 +29,66 @@ export const items: Array<Project> = [
 		type: 'Discord Bot'
 	},
 	{
+		slug: 'hanavim',
+		color: '#2a5d7b',
+		description: hana,
+		shortDescription: "Une configuration neovim fait maison pour tous les projets",
+		links: [{ to: 'https://github.com/Tokiwadai-Railgun/HanaVim', label: 'GitHub' }],
+		logo: Assets.HanaVim,
+		name: 'HanaVim (花)',
+		period: {
+			from: new Date(2024, 9, 14),
+		},
+		skills: getSkills('lua', "neovim"),
+		type: 'Neovim config'
+	},
+	{
+		slug: "api-tester",
+		color: "orange",
+		shortDescription: "Un simple cli pour tester des API",
+		links: [{ to: "https://github.com/tokiwadai-railgun/api-tester", label: "GitHub" }],
+		logo: Assets.ApiTester,
+		name: "api-tester",
+		description: api_tester,
+		period: {
+			from: new Date(2024, 9, 14),
+			to: new Date(2024, 9, 14),
+		},
+		skills: getSkills("rust"),
+		type: ("CLI")
+	},
+	{
 		slug: 'portfolio',
 		color: '#ff3e00',
 		description: // String are passed to markdown afterward
-			`Portfolio réalisé pour le BTS SIO SLAM en 1ère année en utilisant le framework Svelte et du Typescript. <br> Principalement venu tiré du template 
-    `,
+			`Portfolio réalisé pour le BTS SIO SLAM en 1ère année en utilisant le framework Svelte et du Typescript. <br> Principalement tiré du template [slick-portfolip-svelte](https://github.com/RiadhAdrani/slick-portfolio-svelte) de RiadhAdrani
+`,
 		shortDescription:
 			'Portfolio réalisé pendant la 1ère année en BTS SIO SLAM',
-		links: [{ to: 'https://github.com/Tokiwadai-Railgun/Tokiwadai-Railgun.github.io', label: 'GitHub' }],
+		links: [{ to: 'https://github.com/Tokiwadai-Railgun/portfolio', label: 'GitHub' }],
 		logo: Assets.Svelte,
 		name: 'Portfolio',
 		period: {
-			from: new Date(2024, 4, 1)
+			from: new Date(2024, 4, 1),
 		},
-		skills: getSkills('svelte', 'ts', 'tailwind', 'sass'),
+		skills: getSkills('svelte', 'ts'),
 		type: 'Site',
-		screenshots: [
-			{
-				label: 'screen 1',
-				src: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '2',
-				src: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '3',
-				src: 'https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '4',
-				src: 'https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '5',
-				src: 'https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-			},
-			{
-				label: '6',
-				src: 'https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2dyYW1taW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
-			}
-		]
-	}
+		screenshots: []
+	},
+	{
+		slug: "git-clone",
+		color: "orange",
+		shortDescription: "Une reproduction de l'outil git faite en rust",
+		links: [{ to: "https://github.com/Tokiwadai-Railgun/git-clone-rust", label: "GitHub" }],
+		logo: Assets.Git,
+		name: "Git Clone",
+		description: git_clone,
+		period: {
+			from: new Date(2024, 7, 13),
+		},
+		skills: getSkills("rust", "git"),
+		type: ("CLI")
+	},
 ];
 
 export const title = 'Projets';
