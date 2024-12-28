@@ -28,4 +28,4 @@ export const links: Array<{ platform: Platform; link: string }> = [
   },
 ];
 
-export const skills = getSkills('js', 'svelte', 'ts', 'rust', 'docker');
+export const skills = getSkills('js', 'ts', 'rust', 'git');

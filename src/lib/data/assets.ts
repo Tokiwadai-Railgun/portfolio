@@ -87,6 +87,7 @@ const Assets = {
 		HanaVim: a('HanaVim.png'),
 		ApiTester: a('api-tester.png'),
 		Nvim: a('Nvim.png'),
+		OwOmnipotentHome: a('owomnipotent-home.png'),
 };
 
 export default Assets;

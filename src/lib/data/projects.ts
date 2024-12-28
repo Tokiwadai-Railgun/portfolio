@@ -26,7 +26,10 @@ export const items: Array<Project> = [
 			from: new Date(2020, 7, 6),
 		},
 		skills: getSkills('js'),
-		type: 'Discord Bot'
+		type: 'Discord Bot',
+		screenshots: [
+			{label: "Kanjis", src: "kanjis.png"},
+		]
 	},
 	{
 		slug: 'hanavim',
@@ -40,7 +43,10 @@ export const items: Array<Project> = [
 			from: new Date(2024, 9, 14),
 		},
 		skills: getSkills('lua', "neovim"),
-		type: 'Neovim config'
+		type: 'Neovim config',
+		screenshots: [
+			{label: "Dashboard", src: "hana-dashboard.png"}
+		]
 	},
 	{
 		slug: "api-tester",
@@ -52,10 +58,14 @@ export const items: Array<Project> = [
 		description: api_tester,
 		period: {
 			from: new Date(2024, 9, 14),
-			to: new Date(2024, 9, 14),
+			to: new Date(2024, 9, 16),
 		},
 		skills: getSkills("rust"),
-		type: ("CLI")
+		type: ("CLI"),
+		screenshots: [
+			{label: "Request File", src: "api-tester_request-file.png"},
+			{label: "Example", src: "api-tester_example.png"},
+		]
 	},
 	{
 		slug: 'portfolio',
@@ -87,7 +97,27 @@ export const items: Array<Project> = [
 			from: new Date(2024, 7, 13),
 		},
 		skills: getSkills("rust", "git"),
-		type: ("CLI")
+		type: ("CLI"),
+		screenshots: [
+			{label: "Cat Files", src: "git-clone_cat-file.png"},
+		]
+	},
+	{
+		slug: "owomnipotent",
+		color: "white",
+		shortDescription: "Serveur personnel pour héberger différents projets, la partie développement concerne le dashboard de ce serveur",
+		links: [],
+		name: "OwOmnipotent",
+		description: "Un serveur personnel tournant sous proxmox et permettant d'héberger plusieurs services / projets comme un serveur web, cloud personnel",
+		period: {
+			from: new Date(2024, 10, 1),
+		},
+		logo: Assets.Unknown,
+		skills: getSkills("rust", "svelte", "ts", "docker"),
+		type: ("Dashboard"),
+		screenshots: [
+			{label: "Dashboard", src: "owomnipotent-home.png"},
+		],
 	},
 ];
 

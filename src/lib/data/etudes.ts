@@ -26,7 +26,7 @@ L'UTEC d'Avon est un établissement d'enseignement supérieur proposant une vari
 
 \`\`100%\`\` de taux de poursuite d'études
 
-\`\`64%\`\` de taux de satisfaction édutiants 
+\`\`64%\`\` de taux de satisfaction étudiant 
 
 ### La formation
 Le BTS SIO (Service informatique aux organisations) forme aux différents métiers de l'informatique via son tron commun, on y vois divers langages de programmation, notamment Python et les langages du web accompagnés des cours de matières générales telles que la Culture Générale et Expression, l'Anglais, et le Commerce Economie Juridique et Management.
