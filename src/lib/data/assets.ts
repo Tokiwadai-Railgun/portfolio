@@ -88,6 +88,13 @@ const Assets = {
 		ApiTester: a('api-tester.png'),
 		Nvim: a('Nvim.png'),
 		OwOmnipotentHome: a('owomnipotent-home.png'),
+		OwOmnipotent: a('owomnipotent.png'),
+		Markdown: a('markdown.svg', "markdown-light.svg"),
+		Nextjs: a('nextjs.svg', "nextjs-light.svg"),
+		Actix_web: a("actix_web.png"),
+		Postgresql: a('postgresql.svg'),
+		Mysql: a("mysql.svg"),
+		Prisma: a("prisma.svg", "prisma-light.svg")
 };
 
 export default Assets;
